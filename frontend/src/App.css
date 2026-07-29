@@ -79,24 +79,47 @@ h1 {
   background-color: #e0e0e0;
 }
 
-.chart-grid {
+.app .chart-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
-.chart-container {
+.app .chart-container {
   background-color: #fff;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  min-width: 0;
 }
 
-.exceeded-threshold {
+.app .simulation-controls {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px;
+}
+
+.app .simulate-degradation-button {
+  border: none;
+  border-radius: 5px;
+  background-color: #8a3ffc;
+  color: #fff;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+
+.app .simulate-degradation-button:disabled {
+  background-color: #6c757d;
+  cursor: default;
+}
+
+.app .exceeded-threshold {
   background-color: #ffcccc;
 }
 
-.threshold-alert {
+.app .threshold-alert {
   background-color: #ffcccc;
   color: #cc0000;
   padding: 10px;
@@ -137,6 +160,10 @@ h1 {
 }
 
 @media (max-width: 768px) {
+  .app .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
   .navbar {
     flex-direction: column;
     padding: 10px;
@@ -146,5 +173,11 @@ h1 {
     margin: 5px 0;
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1300px) {
+  .app .chart-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
